@@ -1,0 +1,47 @@
+.album-container {
+  white-space: nowrap;
+  overflow: hidden;
+  /* position: absolute; */
+  flex-direction: column;
+}
+
+.album-card {
+  height: 200px;
+  /* position: absolute; */
+}
+
+.card-overlay {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.album-card:hover .card-overlay {
+  opacity: 100;
+}
+
+.card-img {
+  transition: opacity 300ms;
+}
+
+.album-card:hover .card-img {
+  opacity: 30%;
+}
+
+.album-photo {
+  border-radius: 5%;
+}
+
+.modal-img {
+  height: 750px;
+}
+
+.img-modal {
+  height: 90% !important;
+  width: 90%;
+}
+
+.modal-title {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
