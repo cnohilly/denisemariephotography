@@ -15,6 +15,7 @@ const Albums = (props) => {
 
     const fetchPhotosets = () => {
         axios.get('/api/photosets').then(res => {
+            console.log(res.data);
             setPhotosets(res.data.photoset);
             setLoading(false);
 
