@@ -43,7 +43,7 @@ const Albums = (props) => {
                                 <Card.Img className="card-img" src={photoset.primary_photo_extras.url_m} alt={photoset.title._content} />
                                 <Card.ImgOverlay className="card-overlay">
                                     <Card.Title>{photoset.title._content}</Card.Title>
-                                    <Card.Text>Test{photoset.description._content}</Card.Text>
+                                    <Card.Text>{photoset.description._content}</Card.Text>
                                 </Card.ImgOverlay>
                             </Card>
                         </a>

@@ -11,3 +11,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+/* scroll bar */
+::-webkit-scrollbar {
+  background-color: #202324;
+  color: #aba499;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: #181a1b;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #454a4d;
+}
+
+#messageInput {
+  height: 100px;
+}
+
+.card-img-top {
+  aspect-ratio: 16/9;
+}
+
+.list-group-item {
+  color: var(--bs-white) !important;
+  background-color: var(--bs-secondary) !important;
+}

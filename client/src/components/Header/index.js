@@ -9,7 +9,7 @@ export default function Header() {
 
     return (
         <header className="sticky-top">
-            <Navbar bg="gray" variant="dark" expand="md">
+            <Navbar bg="secondary" variant="dark" expand="md">
                 <Container>
                     <NavLink to="/" className="nav-link">
                         <Navbar.Brand className="d-flex">
@@ -29,6 +29,9 @@ export default function Header() {
                             </NavLink>
                             <NavLink to="/albums" className="ms-auto nav-link">
                                 Albums
+                            </NavLink>
+                            <NavLink to="/about" className="ms-auto nav-link">
+                                About
                             </NavLink>
                         </Nav>
                     </Navbar.Collapse>
