@@ -14,7 +14,7 @@ function App() {
   return (
     <Router>
       <Header />
-      <main>
+      <main className="bg-dark text-white">
         <Routes>
           <Route path="/"
             element={<Home />}

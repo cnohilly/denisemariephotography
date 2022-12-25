@@ -9,12 +9,12 @@ export default function Header() {
 
     return (
         <header className="sticky-top">
-            <Navbar bg="light" variant="light" expand="md">
+            <Navbar bg="gray" variant="dark" expand="md">
                 <Container>
                     <NavLink to="/" className="nav-link">
                         <Navbar.Brand className="d-flex">
                             <img
-                                src="/logo_1_dark.png"
+                                src="/logo_1_white.png"
                                 height="40"
                                 alt="DeniseMariePhotography Logo"
                             />
