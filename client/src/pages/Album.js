@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Container, Card, Row, Col, Modal } from 'react-bootstrap';
+import React, { useState, useEffect, useContext } from 'react';
+import { Container, Row, Col, Modal } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import AlbumCard from '../components/AlbumCard';
 
 import axios from "axios";
+import { Box, ImageList } from '@mui/material';
+import { LoaderContext } from '../components/Loader/LoaderContext';
 
 const Album = (props) => {
-
+    const { loaderOpen, setLoaderOpen } = useContext(LoaderContext);
     const { id: photosetId } = useParams();
 
     const [photoset, setPhotoset] = useState();
-    const [isLoading, setLoading] = useState(true);
 
     const [fullscreen, setFullscreen] = useState(true);
     const [show, setShow] = useState(false);
@@ -19,22 +20,24 @@ const Album = (props) => {
         title: ""
     });
 
-    useEffect(() => {
-        fetchPhotos();
-    }, []);
-
     const fetchPhotos = () => {
+        setLoaderOpen(true);
         axios.get('/api/photoset', {
             params: {
                 photoset_id: photosetId
             }
         }).then(res => {
             setPhotoset(res.data.photoset);
-            setLoading(false);
+            setLoaderOpen(false);
         }).catch(err => {
+            setLoaderOpen(false);
             console.log(err);
         })
     }
+    useEffect(() => {
+        fetchPhotos();
+    }, []);
+
 
     const displayModal = (event) => {
         console.log(event.target.getAttribute('src'));
@@ -45,13 +48,26 @@ const Album = (props) => {
         setShow(true);
     }
 
-    if (isLoading) {
+    if (loaderOpen) {
         return (
             <div>
                 Retrieving albums.
             </div>
         )
     }
+
+    return (
+        <Box p={2} sx={{ backgroundColor: 'darkGray' }}>
+            <ImageList variant="masonry" cols={4} gap={10}>
+                {photoset?.photo?.map((photo) => (
+                    <AlbumCard
+                        key={photoset.id}
+                        photo={photo.url_m}
+                    />
+                ))}
+            </ImageList>
+        </Box>
+    )
 
     return (
         <>
