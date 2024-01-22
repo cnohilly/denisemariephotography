@@ -58,7 +58,7 @@ const Album = (props) => {
 
     return (
         <Box p={2} sx={{ backgroundColor: 'darkGray' }}>
-            <ImageList variant="masonry" cols={4} gap={10}>
+            <ImageList variant="masonry" cols={5} gap={10}>
                 {photoset?.photo?.map((photo) => (
                     <AlbumCard
                         key={photoset.id}
@@ -68,32 +68,6 @@ const Album = (props) => {
             </ImageList>
         </Box>
     )
-
-    return (
-        <>
-            <Container className="m-5 mx-auto">
-                <Row xs={2} md={4} lg={6} className="w-100 gy-5 gx-3">
-                    {photoset.photo.map((photo) => (
-                        <Col className="d-flex align-items-center" key={photo.id}>
-                            {/* <img className="w-100 album-photo" src={photo.url_m} data-attr-url_o={photo.url_o} alt={photo.title} onClick={displayModal} /> */}
-                            <div className="img-card d-flex justify-content-center" >
-                                <img onClick={displayModal} className="absolute h-100" src={photo.url_m} alt={photo.title} />
-                            </div>
-                        </Col>
-                    ))}
-                </Row>
-            </Container >
-            <Modal fullscreen="sm-down" size="xl" centered show={show} onHide={() => setShow(false)}>
-                <Modal.Header closeButton className="bg-dark text-white border-secondary">
-                    <Modal.Title id="img-modal" className="modal-title">{modalInfo.title}</Modal.Title>
-                </Modal.Header>
-                <Modal.Body className="bg-dark mx-0 my-0 d-flex align-items-center justify-content-center m-2 border-dark img-body">
-                    <img src={modalInfo.img} alt={modalInfo.title} className="p-3 album-photo" />
-                </Modal.Body>
-            </Modal>
-        </>
-    )
-
 }
 
 export default Album;
